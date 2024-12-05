@@ -1,0 +1,11 @@
+services:
+  nginx:
+    image: bureaudescons/nuit_info_repo:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt/live/bdcnuitinfo2024.tech/fullchain.pem:/etc/letsencrypt/live/bdcnuitinfo2024.tech/fullchain.pem
+      - /etc/letsencrypt/live/bdcnuitinfo2024.tech/privkey.pem:/etc/letsencrypt/live/bdcnuitinfo2024.tech/privkey.pem
+      - /usr/nuit_info/default.conf:/etc/nginx/conf.d/default.conf
+    restart: always
